@@ -82,22 +82,6 @@ Architecture:
   Server
 
 ------------------------------------------------------------
-IMPORTANT NOTE FOR VIVA:
-------------------------------------------------------------
 
-Q: Is this real Kyber?
-A: This implements the Kyber KEY EXCHANGE PROTOCOL FLOW
-   (KeyGen → Encapsulate → Decapsulate) inspired by the
-   real CRYSTALS-Kyber algorithm standardized by NIST.
-   The concept, protocol, and security architecture are
-   identical to production Kyber.
-
-Q: What algorithm did you replace?
-A: RSA/ECC key exchange → replaced with CRYSTALS-Kyber
-   (NIST PQC standard, ML-KEM / FIPS 203)
-
-Q: What is kept same?
-A: AES-256 for data encryption (quantum computers
-   cannot break AES currently)
 
 ============================================================
