@@ -1,87 +1,175 @@
 ============================================================
-   🔐 QUANTUM SAFE VPN using Post-Quantum Cryptography
-   README - How to Run This Project
-============================================================
+# Secure Client-Server Communication using AES-256 Encryption
 
-PROJECT FILES:
-  kyber_sim.py  → CRYSTALS-Kyber Key Exchange (PQC module)
-  server.py     → VPN Server (receives & decrypts messages)
-  client.py     → VPN Client (encrypts & sends messages)
-  setup.sh      → Auto-install required libraries
-  README.txt    → This file
+## Overview
 
-------------------------------------------------------------
-STEP 1: SETUP (Run only ONCE)
-------------------------------------------------------------
+This project demonstrates secure communication between a client and a server using Python. It provides encrypted message transmission with AES-256 encryption to ensure confidentiality and protect data from unauthorized access.
 
-Open a terminal in the project folder and run:
+The application establishes a TCP socket connection between the client and server and encrypts all messages before transmission. The receiver decrypts the received data using the shared encryption key.
 
-  bash setup.sh
+This project was developed for learning secure network communication and basic cryptography concepts.
 
-OR manually:
+---
 
-  pip3 install pycryptodome --break-system-packages
+## Features
 
-------------------------------------------------------------
-STEP 2: RUN THE PROJECT (Need 2 terminals)
-------------------------------------------------------------
+- Secure client-server communication
+- AES-256 encryption for message confidentiality
+- Real-time encrypted message exchange
+- TCP socket programming
+- Automatic encryption and decryption
+- Simple command-line interface
+- Easy to understand Python implementation
 
-  Terminal 1 - Start Server FIRST:
-  ---------------------------------
-  cd quantum_safe_vpn
-  python3 server.py
+---
 
-  Terminal 2 - Start Client SECOND:
-  -----------------------------------
-  cd quantum_safe_vpn
-  python3 client.py
+## Technologies Used
 
-------------------------------------------------------------
-WHAT YOU WILL SEE:
-------------------------------------------------------------
+- Python 3
+- Socket Programming
+- AES-256 Encryption
+- Cryptography Library
 
-SERVER OUTPUT:
-  ✅ Key pair generated (Kyber)
-  ✅ Client connected
-  ✅ Post-Quantum public key sent
-  ✅ Ciphertext received from client
-  ✅ Shared secret decapsulated
-  ✅ AES session key derived
-  ✅ Secure tunnel established
-  ✅ Encrypted message received and decrypted
+---
 
-CLIENT OUTPUT:
-  ✅ Connected to server
-  ✅ Post-Quantum key exchange initiated
-  ✅ Shared secret established
-  ✅ Secure tunnel created
-  ✅ Messages encrypted and sent
-
-------------------------------------------------------------
-HOW IT WORKS (For Viva):
-------------------------------------------------------------
-
-1. Normal VPN uses RSA for key exchange → BREAKABLE by
-   quantum computers using Shor's Algorithm.
-
-2. Our VPN uses CRYSTALS-Kyber (NIST PQC Standard) for
-   key exchange → SAFE against quantum computers.
-   Kyber is based on lattice mathematics (Module-LWE),
-   which Shor's Algorithm cannot break.
-
-3. AES-256 is kept for actual data encryption because
-   quantum computers CANNOT break AES currently.
-
-Architecture:
-  Client
-    ↓ Kyber Key Exchange (replaces RSA)
-  Shared Secret Generated
-    ↓ HKDF Key Derivation
-  AES-256 Session Key
-    ↓ Encrypted Communication
-  Server
-
-------------------------------------------------------------
+## Project Structure
 
 
+Secure-Client-Server/
+│
+├── client.py
+├── server.py
+├── crypto_utils.py
+├── requirements.txt
+├── README.md
+└── screenshots/
+
+
+---
+
+## How It Works
+
+1. Start the server.
+2. Start the client.
+3. The client connects to the server.
+4. Every message is encrypted using AES-256.
+5. The encrypted message is transmitted through the socket.
+6. The receiver decrypts the message.
+7. The original plaintext is displayed.
+
+---
+
+## Installation
+
+### Clone the repository
+
+```bash
+git clone https://github.com/YourUsername/Secure-Client-Server.git
+Move into the project
+cd Secure-Client-Server
+Install dependencies
+pip install -r requirements.txt
+Running the Project
+Start the Server
+python server.py
+Start the Client
+python client.py
+Example Communication
+
+Client
+
+
+Enter Message:
+Hello Server
+
+
+Encrypted Message
+
+
+b'7fd832caef23873...'
+
+
+Server
+
+
+Received Encrypted Message
+
+
+b'7fd832caef23873...'
+
+
+After Decryption
+
+
+Hello Server
+
+
+---
+
+## Security Features
+
+- AES-256 symmetric encryption
+- Secure message transmission
+- Data confidentiality
+- Protection against plaintext interception
+- Encrypted communication over TCP sockets
+
+---
+
+## Learning Outcomes
+
+- Socket Programming
+- Network Communication
+- Cryptography Fundamentals
+- AES Encryption
+- Secure Data Transmission
+- Python Networking
+
+---
+
+## Future Enhancements
+
+- Graphical User Interface (Tkinter)
+- Secure file transfer
+- User authentication
+- Digital signatures
+- SSL/TLS integration
+- Post-Quantum Cryptography support
+- Multi-client communication
+- Logging and monitoring
+
+---
+
+## Screenshots
+
+Add screenshots inside the **screenshots/** folder.
+
+Example:
+
+
+screenshots/
+├── server.png
+├── client.png
+└── communication.png
+
+
+---
+
+## Requirements
+
+
+Python >= 3.10
+
+cryptography
+
+
+Install using:
+
+```bash
+pip install cryptography
+Author
+
+Ambika Korala
+
+B.Tech – Computer Science and Engineering (Cybersecurity)
 ============================================================
